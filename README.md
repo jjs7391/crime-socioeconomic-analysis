@@ -54,6 +54,7 @@
 ---
 
 ## 6. 파일 구성
--data/processed : 전처리 완료 데이터 파일
--notebook : 분석 노트북 (crime_analysis.ipynb)
--requirements.txt : 실행에 필요한 라이브러리 목록
+
+- data/processed : 전처리 완료 데이터 파일
+- notebook : 분석 노트북 (crime_analysis.ipynb)
+- requirements.txt : 실행에 필요한 라이브러리 목록
