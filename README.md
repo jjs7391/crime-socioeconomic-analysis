@@ -1,17 +1,59 @@
-# Regional Socioeconomic Vulnerability and Crime Rate Analysis (2023)
+# 지역별 사회경제적 취약성과 범죄율의 관계 분석 (2023)
 
-## Overview
-This project analyzes the relationship between the ratio of basic livelihood recipients and crime rate across Korean regions using 2023 public datasets.
+## 1. 프로젝트 개요
 
-## Key Results
-- Correlation coefficient: 0.52
-- After outlier removal: 0.466
-- OLS Regression R²: 0.217
-- 1% increase in recipient ratio → ~128 increase in crime rate per 100,000
+본 프로젝트는 2023년 공공데이터를 활용하여  
+지역별 **기초생활보장 수급자 비율**과 **범죄율(인구 10만명당)** 간의 관계를 분석한 데이터 분석 프로젝트입니다.
 
-## Methods
-- Data cleaning & region standardization
-- Feature engineering (normalized crime rate)
-- Correlation analysis
-- Outlier removal
-- OLS regression
+사회적 취약계층 비율이 범죄율과 통계적으로 관련이 있는지 확인하기 위해
+상관 분석 및 단순 선형 회귀 분석을 수행하였습니다.
+
+---
+
+## 2. 사용 데이터
+
+- 경찰청 – 지역별 범죄 발생 통계 (2023)
+- 보건복지부 – 기초생활보장 수급자 수 (2023)
+- 행정안전부 – 주민등록 인구 통계 (2023)
+
+※ 원본 데이터는 공공데이터포털에서 제공되는 공개 자료입니다.
+
+---
+
+## 3. 분석 방법
+
+1. 지역명 정규화 및 데이터 병합
+2. 파생 변수 생성
+   - 수급자비율(%) = (수급자수 ÷ 총인구수) × 100
+   - 범죄율(10만명당) = (범죄건수 ÷ 총인구수) × 100,000
+3. 피어슨 상관 분석
+4. 이상치(세종, 제주) 제거 후 재분석
+5. 단변량 OLS 회귀 분석
+
+---
+
+## 4. 주요 결과
+
+- 전체 지역 기준 상관계수: **0.52**
+- 이상치 제거 후 상관계수: **0.466**
+- 회귀 분석 설명력(R²): **0.217**
+- 수급자 비율이 1% 증가할 때 범죄율은 약 **128건(10만명당)** 증가하는 경향
+
+→ 두 변수는 양의 상관관계를 보였으나,
+상관관계는 인과관계를 의미하지 않습니다.
+
+---
+
+## 5. 한계점
+
+- 단일 연도(2023년) 데이터 사용
+- 시도 단위 분석으로 세부 지역 분석 한계 존재
+- 실업률, 교육 수준, CCTV 수 등 추가 변수 미포함
+- 단변량 회귀 분석에 한정
+
+---
+
+## 6. 파일 구성
+-data/processed : 전처리 완료 데이터 파일
+-notebook : 분석 노트북 (crime_analysis.ipynb)
+-requirements.txt : 실행에 필요한 라이브러리 목록
