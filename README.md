@@ -118,3 +118,7 @@
 - data/processed # 전처리 완료 데이터
 - notebook/ # 분석 노트북 (crime_analysis.ipynb)
 - requirements.txt # 실행 라이브러리 목록
+
+## 9. 데이터 모델 스키마
+
+본 프로젝트의 관계형 데이터 모델은 `schema_design.sql` 파일에 정의되어 있습니다.
